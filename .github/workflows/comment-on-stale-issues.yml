@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Stale issue job
     steps:
-    - uses: aws-actions/stale-issue-cleanup@0604f2edf84a3a66bc0dfb4a30eb07814cbdf440
+    - uses: pose/stale-issue-cleanup@6c41dce28d1467899a804a8e4107d4d8b44f71f9
       with:
         issue-types: issues # only look at issues (ignore pull-requests)
 
